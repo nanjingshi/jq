@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="../css/public.css"/>
+		<link rel="stylesheet" type="text/css" href="../css/new_file.css"/>
+		
+	</head>
+	<body>
+		<section id="toptop">
+			<div id="top" class="m">
+				<div class="top-l">
+					<ul>
+						<li><img src="../img/未标题-6.png"/><a href="">收藏本页</a></li>
+						<li><img src="../img/未标题-7.png"/><a href="">手机版</a></li>
+						<li><img src="../img/未标题-8.png"/><a href="">二维码</a></li>
+						<li><img src="../img/未标题-9.png"/><a href="">购物车</a></li>
+					</ul>
+				</div>
+				<div class="top-r">
+					<img src="../img/ico-user.png">
+					<a href="">会员登录</a>
+					|
+					<a href="">免费注册</a>
+					|
+					<a href="">忘记密码</a>
+				</div>
+			</div>
+		</section>
+		
+		<header class="m">
+			<div class="logo">
+				<a href="">
+					<img src="../img/102751881.jpg"/>
+				</a>
+			</div>
+			
+			<form>
+				<img src="../img/未标题-10.png"/>
+				<input type="text" value="请输入关键词"  id="gjc"/>
+				<select>
+                    	<option><a href="">供应</a></option>
+                        <option><a href="">展会</a></option>
+                        <option><a href="">公司</a></option>
+                        <option><a href="">招商</a></option>
+                </select>
+
+				<input type="submit" value="搜索" id="btn"/>
+			</form>
+			
+			<strong>推广</strong>
+			<strong>热搜：</strong>
+			<span >
+				<a href="">磁力钻</a>&nbsp; 
+				<a href="">标志</a>&nbsp; 
+			</span>
+		</header>
+		
+		<section id="nav" class="m">
+			<ul>
+				<li><a href="">类目</a></li>
+				<li><a href="">供应</a></li>
+				<li><a href="">求购</a></li>
+				<li><a href="">公司</a></li>
+				<li><a href="">行情</a></li>
+				<li><a href="">展会</a></li>
+				<li><a href="">咨询</a></li>
+				<li><a href="">招商</a></li>
+				<li><a href="">品牌</a></li>
+				<li><a href="">人才</a></li>
+				<li><a href="">知道</a></li>
+				<li><a href="">图库</a></li>
+				<li><a href="">商圈</a></li>
+			</ul>
+		</section>
+
+
+		<section id="zc">
+			<div class="reg-main">
+				<div class="reg-step">
+					<ul>
+						<li style="width:90px;">&nbsp;</li>
+						<li><i>1</i></li>
+						<li><i>2</i>填写资料</li>
+						<li><b>&nbsp;</b></li>
+						<li style="width:90px;">&nbsp;</li>
+					</ul>
+				</div>
+			</div>
+			
+			
+				<table cellspacing="0" class="reg-tb" id="reg-box">
+				<tr>
+					<td class="tl"><span>*</span> 会员类型</td>
+					<td class="tr">
+					<input type="radio" name="post[regid]" value="6" id="g_6" onclick="Dreg(1);" checked/><label for="g_6"> 企业会员</label>&nbsp;&nbsp;&nbsp;&nbsp;
+					<input type="radio" name="post[regid]" value="5" id="g_5" onclick="Dreg(0);"/><label for="g_5"> 个人会员</label></span>
+					</td>
+				</tr>
+				
+				<tbody>
+					<tr>
+						<td class="tl"><span>*</span> 公司名称</td>
+						<td class="tr"><input type="text" class="input-text" /></td>
+						<td class="tt">						
+						<span id="dcompany" class="f_red px12"></span>&nbsp;
+						</td>
+					</tr>
+				</tbody>
+				
+				<tr>
+					<td class="tl"><span>*</span> 会员名称</td>
+					<td class="tr"><input type="text"  id="user" /></td>
+					<td class="tt"></td>
+				</tr>
+				<tr>
+					<td class="tl"><span>*</span> 登录密码</td>
+					<td class="tr"><input type="password"  id="pass" /></td>
+					<td class="tt"></td>
+				</tr>
+				
+				<tr>
+				<td class="tl"></td>
+				<td class="tr"><input type="submit"   value="立即注册" class="btn-blue reg-btn"  /></td>
+				<td class="tt"></td>
+				</tr>
+				</table>
+			
+				<span id="spanspan"></span>
+		</section>
+		
+		
+		
+		<footer class="m">
+					<a href="" class="footer-f">哈哈哈哈</a>
+					|
+					<a href="">哈哈哈哈</a>
+					|
+					<a href="">哈哈哈哈</a>
+					|
+					<a href="">哈哈哈哈</a>
+					|
+					<a href="">哈哈哈哈</a>
+					|
+					<a href="">哈哈哈哈</a>
+					|
+					<a href="">哈哈哈哈</a>
+					|
+					<a href="">哈哈哈哈</a>
+					|
+					<a href="">哈哈哈哈</a>
+					|
+					<a href="">哈哈哈哈</a>
+					
+		</footer>
+		
+		<section id="bot" class="m">
+			<img src="../img/未标题-5.png"/>
+			<img src="../img/未标题-5.png"/>
+			<img src="../img/未标题-5.png"/>
+			<img src="../img/未标题-5.png"/>
+			<img src="../img/未标题-5.png"/>
+		</section>		
+	</body>
+	
+<script src="jquery.2.2.4.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript">
+		
+		class Register{
+			constructor(){
+				this.url = "http://www.icodeilife.cn/ctrl/register.php";
+				this.init();
+			}
+			init(){
+				var that = this;
+				$(".btn-blue").click(function(){
+					that.load()
+				})
+			}
+			load(){
+				$.ajax({
+					url:this.url,
+					success:function(res){
+						switch(res){
+							case "0":
+								$("#spanspan").html("用户名重复");break;
+							case "1":
+								$("#spanspan").html("注册成功，3秒后跳转到登录");
+								setTimeout(()=>{
+									location.href = "login.html";
+								},2000)
+								break;
+							case "2":
+								$("#spanspan").html("数据不全");break;
+						}
+					},
+					data:{
+						tel:$("#user").val(),
+						pass:$("#pass").val()
+					}
+				})
+			}
+		}
+		
+		new Register;
+		
+	</script>	
+	
+</html>

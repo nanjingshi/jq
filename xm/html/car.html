@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="../css/public.css"/>
+		<link rel="stylesheet" type="text/css" href="../css/new_file.css"/>
+
+		<style type="text/css">
+			#bttp{height: 100px;}
+			#bttp img{height: 90px;width: 300px;}
+			#zzzz{height: 600px;}
+			img{width: 60px;}
+			h2{margin: 30px 0;text-indent: 30px;}
+			em{display: block;width: 100px;line-height: 30px;text-align: center;background: deepskyblue;border-radius: 6px;margin: 0 auto;margin-top: 10px;font-style: normal;cursor: pointer;color: #fff;}
+			input[type="number"]{width:50px}
+			td{background: #C0C0C0;}
+			#lastlast{text-align: center;}
+		</style>
+	</head>
+	<body>
+		<section id="bttp" class="m">
+			<a href="index.html"><img src="../img/102751881.jpg" /></a>
+		</section>
+		
+		<section id="nav" class="m">
+			<ul>
+				<li><a href="index.html">首页</a></li>
+				<li><a href="list.html">供应</a></li>
+				<li><a href="list.html">求购</a></li>
+				<li><a href="list.html">公司</a></li>
+				<li><a href="list.html">行情</a></li>
+				<li><a href="list.html">展会</a></li>
+				<li><a href="list.html">咨询</a></li>
+				<li><a href="list.html">招商</a></li>
+				<li><a href="list.html">品牌</a></li>
+				<li><a href="list.html">人才</a></li>
+				<li><a href="list.html">知道</a></li>
+				<li><a href="list.html">图库</a></li>
+				<li><a href="list.html">商圈</a></li>
+			</ul>
+		</section>	
+		
+		<div id="zzzz" class="m">
+			
+		
+				<h2>购物车<small>&nbsp;&nbsp;<a href="list.html" target="_blank"></a></small></h2>
+		<table border="1" cellspacing="0" width="1000" align="center">
+			<thead>
+				<tr>
+					<th></th>
+					<th width="100">商品图片</th>
+					<th>名字</th>
+					<th>价格</th>
+					<th width="120">数量</th>
+					<th>操作</th>
+				</tr>
+			</thead>
+			<tbody id="tbody">
+
+			</tbody>
+			<tfoot>
+				<tr>
+					<!--<td colspan="2"><input type="checkbox" name="" id="" value="" />全部选中</td>
+					<td align="right"></td>
+					<td></td>
+					<td></td>
+					<td><em>全部删除</em></td>-->
+				</tr>
+			</tfoot>
+		</table>
+		</div>
+		<footer class="m div3">
+					<a href="" class="footer-f">哈哈哈哈</a>
+					|
+					<a href="">哈哈哈哈</a>
+					|
+					<a href="">哈哈哈哈</a>
+					|
+					<a href="">哈哈哈哈</a>
+					|
+					<a href="">哈哈哈哈</a>
+					|
+					<a href="">哈哈哈哈</a>
+					|
+					<a href="">哈哈哈哈</a>
+					|
+					<a href="">哈哈哈哈</a>
+					|
+					<a href="">哈哈哈哈</a>
+					|
+					<a href="">哈哈哈哈</a>
+					
+		</footer>
+		<div id="lastlast" class="m">
+			<p>中国办公用品协会委员 中国电子商务协会委员 ICP经营许可证 粤46353758@3用3534</p>
+			<p>www.wertsdf.com mengziwei科技有限公司</p>
+		</div>
+		
+	</body>
+	
+	<script src="../libs/ajax.3.0.js" type="text/javascript" charset="utf-8"></script>
+	<script src="../libs/cookie.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		
+		class Car{
+			constructor(options){
+				this.tbody = options.tbody;
+				this.url = options.url;
+				this.load();				
+				this.addEvent();
+			}
+			load(){
+				var that = this;
+				ajax({
+					url:this.url,
+					success:function(res){
+						that.res = JSON.parse(res);
+						that.getCookie();
+					}
+				})
+			}
+			getCookie(){
+				this.goods = JSON.parse(getCookie("goods"));
+				this.display()
+				console.log(this.goods)
+			}
+			display(){
+				var str = "";
+				for(var i=0;i<this.res.length;i++){
+					for(var j=0;j<this.goods.length;j++){
+						if(this.res[i].goodsId == this.goods[j].id){
+							str += `<tr>
+										<td><input type="checkbox" name="" id="" value="" /></td>
+										<td><img src="${this.res[i].url}"/></td>
+										<td>${this.res[i].name}</td>
+										<td>${this.res[i].price}</td>
+										<td><input type="number" value="${this.goods[j].num}"></td>
+										<td><em data-index="${this.res[i].goodsId}">删除</em></td>
+									</tr>`
+						}
+					}
+				}
+				this.tbody.innerHTML = str;
+			}
+			addEvent(){
+				var that = this;
+				this.tbody.addEventListener("click",function(eve){
+					if(eve.target.nodeName == "EM"){
+						that.id = eve.target.getAttribute("data-index");
+						eve.target.parentNode.parentNode.remove();
+						that.changeCookie(function(index){
+							that.goods.splice(index,1);
+						})
+					}
+				})
+				this.tbody.addEventListener("input",function(eve){
+					if(eve.target.type == "number"){
+						that.value = eve.target.value;
+						that.id = eve.target.parentNode.nextElementSibling.children[0].getAttribute("data-index");
+						that.changeCookie(function(index){
+							that.goods[index].num = that.value;
+						});
+					}
+				})
+			}
+			changeCookie(callback){
+				for(var i=0;i<this.goods.length;i++){
+					if(this.goods[i].id == this.id){
+						break;
+					}
+				}				
+				callback(i);
+				setCookie("goods",JSON.stringify(this.goods))
+			}
+		}
+		
+		new Car({
+			tbody:document.getElementById("tbody"),
+			url:"goods.json"
+		})
+		
+	</script>
+</html>

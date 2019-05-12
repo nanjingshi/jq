@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="../css2/public.css"/>
+		<link rel="stylesheet" type="text/css" href="../css2/new_file.css"/>
+		<style type="text/css">
+			/*#cont{width:800px;border: solid 1px black;margin: 0 auto;height: 1400px;}
+			.box{width: 800px;float: left;border: solid 1px black;box-sizing: border-box;text-align: center;}*/
+			/*.box p{margin: 10px 0;height: 30px;overflow: hidden;line-height: 20px;display: inline;}*/
+			.box p{line-height: 40px;}
+			.box em{display: block;width: 100px;background: #ff0;margin-top: 10px;border-radius: 15px;}
+			#cont{overflow: hidden;position: relative;}
+			.box{float: left;width: 400px;border: 1px solid #000000;height: 300px;border-radius:20px ;overflow: hidden;}
+			.mm{position: relative;}
+			#aimg{position: absolute;right: 0;width: 370px;height: 800px;}
+		</style>
+	</head>
+	<body>
+		<section id="toptop">
+			<div id="top" class="m">
+				<div class="top-l">
+					<ul>
+						<li><img src="../img/未标题-6.png"/><a href="">收藏本页</a></li>
+						<li><img src="../img/未标题-7.png"/><a href="">手机版</a></li>
+						<li><img src="../img/未标题-8.png"/><a href="">二维码</a></li>
+						<li><img src="../img/未标题-9.png"/><a href="car.html">购物车</a></li>						
+					</ul>
+				</div>
+				<div class="top-r">
+					<img src="../img/ico-user.png">
+					<a href="">会员登录</a>
+					|
+					<a href="">免费注册</a>
+					|
+					<a href="">忘记密码</a>
+				</div>
+			</div>
+		</section>
+		
+		<header class="m">
+			<div class="logo">
+				<a href="">
+					<img src="../img/102751881.jpg"/>
+				</a>
+			</div>
+			
+			<form>
+				<img src="../img/未标题-10.png"/>
+				<input type="text" value="请输入关键词"  id="gjc"/>
+				<select>
+                	<option><a href="">供应</a></option>
+                    <option><a href="">展会</a></option>
+                    <option><a href="">公司</a></option>
+                    <option><a href="">招商</a></option>
+                </select>
+
+				<input type="submit" value="搜索" id="btn"/>
+			</form>
+			
+			<strong>推广</strong>
+			<strong>热搜：</strong>
+			<span >
+				<a href="">磁力钻</a>&nbsp; 
+				<a href="">标志</a>&nbsp; 
+			</span>
+		</header>
+		
+		<section id="nav" class="m">
+			<ul>
+				<li><a href="index.html">类目</a></li>
+				<li><a href="">供应</a></li>
+				<li><a href="">求购</a></li>
+				<li><a href="">公司</a></li>
+				<li><a href="">行情</a></li>
+				<li><a href="">展会</a></li>
+				<li><a href="">咨询</a></li>
+				<li><a href="">招商</a></li>
+				<li><a href="">品牌</a></li>
+				<li><a href="">人才</a></li>
+				<li><a href="">知道</a></li>
+				<li><a href="">图库</a></li>
+				<li><a href="">商圈</a></li>
+			</ul>
+		</section>
+		
+		<div class="m mm">
+		
+		<img src="../img/block_ht_z9f_295398_1904.jpg"/ id="aimg">
+			</div>
+		<div id="cont" class="m">
+
+		</div>
+		
+		<footer class="m">
+					<a href="" class="footer-f">哈哈哈哈</a>
+					|
+					<a href="">哈哈哈哈</a>
+					|
+					<a href="">哈哈哈哈</a>
+					|
+					<a href="">哈哈哈哈</a>
+					|
+					<a href="">哈哈哈哈</a>
+					|
+					<a href="">哈哈哈哈</a>
+					|
+					<a href="">哈哈哈哈</a>
+					|
+					<a href="">哈哈哈哈</a>
+					|
+					<a href="">哈哈哈哈</a>
+					|
+					<a href="">哈哈哈哈</a>
+					
+		</footer>
+		
+		<section id="bot" class="m">
+			<img src="../img/未标题-5.png"/>
+			<img src="../img/未标题-5.png"/>
+			<img src="../img/未标题-5.png"/>
+			<img src="../img/未标题-5.png"/>
+			<img src="../img/未标题-5.png"/>
+		</section>
+		
+	</body>
+	<script src="../libs/ajax.3.0.js" type="text/javascript" charset="utf-8"></script>
+	<script src="../libs/cookie.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		class List{
+			constructor(options){
+//				1.解析参数
+				this.cont = options.cont;
+				this.url = options.url;
+				
+//				2.请求数据
+				this.load();
+				
+//				5.绑定事件
+				this.addEvent();
+			}
+			load(){
+				var that = this;
+				ajax({
+					url:this.url,
+					success:function(res){
+//						3.请求成功之后解析数据,并渲染页面
+						that.res = JSON.parse(res)
+						that.display()
+					}
+				})
+			}
+		
+			display(){		
+				var str = "";
+				for(var i=0;i<this.res.length;i++){
+					str += `<div class="box" index="${this.res[i].goodsId}">
+								<img src="${this.res[i].url}"/>
+								<p>名称:${this.res[i].name}</p>
+								<p>地址:${this.res[i].ad}</p>
+								<span>价格:${this.res[i].price}</span>
+								<em>加入购物车</em>
+							</div>`
+				}
+				this.cont.innerHTML = str;
+			}
+			addEvent(){
+				var that = this;
+				this.cont.addEventListener("click",function(eve){
+					if(eve.target.nodeName == "EM"){
+//						6.被点击时,获取货号,存cookie
+						that.id = eve.target.parentNode.getAttribute("index");
+						that.setCookie()
+					}
+				})
+			}
+			setCookie(){
+//				console.log(1)
+//				因为要使用一条cookie存商品,所以数据选择数组里面放对象[{},{}]
+				this.goods = getCookie("goods");
+//				情况1:第一次添加
+				if(this.goods == ""){
+					this.goods = [{
+						id:this.id,
+						num:1
+					}];
+				}else{
+//					情况2:不是第一次添加
+					this.goods = JSON.parse(this.goods);
+//					新情况1：这次点击的是老数据
+					var onoff = true;
+					this.goods.forEach((v)=>{
+						if(v.id == this.id){
+							v.num++
+							onoff = false;
+						}
+					})
+					
+//					新情况2：这次点击的是新数据
+					if(onoff){
+						this.goods.push({
+							id:this.id,
+							num:1
+						})
+					}
+				}
+//				所有关于数组的操作结束之后,将数组转成字符再设置到cookie中
+				setCookie("goods",JSON.stringify(this.goods))
+			}
+		}
+		
+		new List({
+			cont:document.getElementById("cont"),
+			url:"http://localhost/0509xm/html/goods.json"
+		})
+
+
+
+//		var cont = document.getElementById("cont")
+//		cont.innerHTML = str;
+	</script>
+	</body>
+</html>

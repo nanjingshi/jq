@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="../css/public.css"/>
+		<link rel="stylesheet" type="text/css" href="../css/new_file.css"/>
+	</head>
+	<body>
+		<section id="toptop">
+			<div id="top" class="m">
+				<div class="top-l">
+					<ul>
+						<li><img src="../img/未标题-6.png"/><a href="">收藏本页</a></li>
+						<li><img src="../img/未标题-7.png"/><a href="">手机版</a></li>
+						<li><img src="../img/未标题-8.png"/><a href="">二维码</a></li>
+						<li><img src="../img/未标题-9.png"/><a href="">购物车</a></li>
+						
+					</ul>
+				</div>
+				<div class="top-r">
+					<img src="../img/ico-user.png">
+					<a href="">会员登录</a>
+					|
+					<a href="">免费注册</a>
+					|
+					<a href="">忘记密码</a>
+				</div>
+			</div>
+		</section>	
+		
+		<section id="nav" class="m">
+			<ul>
+				<li><a href="">类目</a></li>
+				<li><a href="">供应</a></li>
+				<li><a href="">求购</a></li>
+				<li><a href="">公司</a></li>
+				<li><a href="">行情</a></li>
+				<li><a href="">展会</a></li>
+				<li><a href="">咨询</a></li>
+				<li><a href="">招商</a></li>
+				<li><a href="">品牌</a></li>
+				<li><a href="">人才</a></li>
+				<li><a href="">知道</a></li>
+				<li><a href="">图库</a></li>
+				<li><a href="">商圈</a></li>
+			</ul>
+		</section>
+
+		<section id="ddd">
+		<h1>登录页面</h1>
+		用户名：<input type="text" id="user" value="" /><br />
+		密码：<input type="text" id="pass" value="" /><br />
+		<input type="button" name="btn" id="bbtn" value="登录" /><br />
+		<span></span>
+		</section>
+		
+		<footer class="m">
+					<a href="" class="footer-f">哈哈哈哈</a>
+					|
+					<a href="">哈哈哈哈</a>
+					|
+					<a href="">哈哈哈哈</a>
+					|
+					<a href="">哈哈哈哈</a>
+					|
+					<a href="">哈哈哈哈</a>
+					|
+					<a href="">哈哈哈哈</a>
+					|
+					<a href="">哈哈哈哈</a>
+					|
+					<a href="">哈哈哈哈</a>
+					|
+					<a href="">哈哈哈哈</a>
+					|
+					<a href="">哈哈哈哈</a>
+					
+		</footer>
+		
+		<section id="bot" class="m">
+			<img src="../img/未标题-5.png"/>
+			<img src="../img/未标题-5.png"/>
+			<img src="../img/未标题-5.png"/>
+			<img src="../img/未标题-5.png"/>
+			<img src="../img/未标题-5.png"/>
+		</section>
+
+	</body>
+	<script src="jquery.2.2.4.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		
+		class Login{
+			constructor(){
+				this.url = "http://www.icodeilife.cn/ctrl/login.php";
+				
+				this.init()
+			}
+			init(){
+				var that = this;
+				$("#bbtn").click(function(){
+					that.load()
+				})
+			}
+			load(){
+				var that = this;
+				$.ajax({
+					url:this.url,
+					data:{
+						user:$("#user").val(),
+						pass:$("#pass").val()
+					},
+					success:function(res){
+						switch(res){
+							case "0":
+								$("span").html("用户名密码不符");break;
+							case "1":
+								$("span").html("重新登录");break;
+							default:
+//								因为接口问题,返回json数据时表示成功,json数据不好判断,所以,直接使用default判断
+								$("span").html("登录成功，3秒后跳转到首页");
+								that.res = JSON.parse(res)
+								console.log(that.res)
+								setTimeout(()=>{
+									location.href = "index.html";
+								},1000)
+						}
+					}//,
+//					beforeSend:function(){
+//						$("span").html("<img src='loading.gif'>")
+//					}
+				})
+			}
+		}
+		
+		new Login;
+	</script>
+</html>

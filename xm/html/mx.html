@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="../css/public.css"/>
+		<link rel="stylesheet" type="text/css" href="../css/new_file.css"/>
+		<style>
+			#mx{height: 650px;}
+			
+			#bbbox{height: 600px;width: 500px;border: 1px solid #000000;position: relative;}
+			#bbbox .b2 img{height: 300px;width: 360px;}
+			#bbbox .b1{height: 40px;}
+			#bbbox .b1{font: 18px/2 "";color: red;}
+			#bbbox .b3 p{font: 30px/40px "";text-indent: 20px;}
+			#bbbox .b3 p:nth-child(3){color: red;font-size: 50px;}
+			#bbbox .b3 input{position: absolute;bottom: 60px;left: 60px;width: 150px;height: 60px;}
+		</style>
+	</head>
+	<body>
+
+		
+		<section id="toptop" class="div1">
+			<div id="top" class="m">
+				
+				<div class="sjcd">
+					
+				</div>
+				<div class="top-l">
+					<ul>
+						<li><img src="../img/未标题-6.png"/><a href="">收藏本页</a></li>
+						<li><img src="../img/未标题-7.png"/><a href="">手机版</a></li>
+						<li><img src="../img/未标题-8.png"/><a href="">二维码</a></li>
+						<li><img src="../img/未标题-9.png"/><a href="car.html">购物车</a></li>
+						
+					</ul>
+				</div>
+				<div class="top-r">
+					<img src="../img/ico-user.png">
+					<a href="login.html">会员登录</a>
+					|
+					<a href="register.html">免费注册</a>
+					|
+					<a href="">忘记密码</a>
+				</div>
+			</div>
+		</section>		
+		<header class="m">
+			<div class="logo">
+				<a href="">
+					<img src="../img/102751881.jpg"/>
+				</a>
+			</div>
+			
+			<form>
+				<img src="../img/未标题-10.png"/>
+				<input type="text" value="请输入关键词"  id="gjc"/>
+				<select>
+                    	<option><a href="">供应</a></option>
+                        <option><a href="">展会</a></option>
+                        <option><a href="">公司</a></option>
+                        <option><a href="">招商</a></option>
+                </select>
+
+				<input type="submit" value="搜索" id="btn"/>
+			</form>
+			
+			<strong>推广</strong>
+			<strong>热搜：</strong>
+			<span >
+				<a href="">磁力钻</a>&nbsp; 
+				<a href="">标志</a>&nbsp; 
+			</span>
+		</header>		
+		<section id="nav" class="m">
+			<ul>
+				<li><a href="index.html">类目</a></li>
+				<li><a href="list.html">供应</a></li>
+				<li><a href="list.html">求购</a></li>
+				<li><a href="list.html">公司</a></li>
+				<li><a href="list.html">行情</a></li>
+				<li><a href="list.html">展会</a></li>
+				<li><a href="list.html">咨询</a></li>
+				<li><a href="list.html">招商</a></li>
+				<li><a href="list.html">品牌</a></li>
+				<li><a href="list.html">人才</a></li>
+				<li><a href="list.html">知道</a></li>
+				<li><a href="list.html">图库</a></li>
+				<li><a href="list.html">商圈</a></li>
+			</ul>
+		</section>
+		
+		
+		
+		<div id="mx" class="m">
+			<div id="bbbox">
+				<div class="b1">						
+					<div id="countdown"></div>	
+				</div>
+				<div class="b2">
+					<img src="../img/block_z9g_xpss_600703.jpg"/>
+				</div>
+				<div class="b3">
+					<p>索尼Z9G电视机</p>
+					<p>原价：3999元</p>
+					<p>秒杀价：2899元</p>
+					<input type="button" name="" id="" value="秒杀抢购" />
+				</div>
+			</div>
+		</div>
+		
+
+		<footer class="m div3">
+					<a href="" class="footer-f">哈哈哈哈</a>
+					|
+					<a href="">哈哈哈哈</a>
+					|
+					<a href="">哈哈哈哈</a>
+					|
+					<a href="">哈哈哈哈</a>
+					|
+					<a href="">哈哈哈哈</a>
+					|
+					<a href="">哈哈哈哈</a>
+					|
+					<a href="">哈哈哈哈</a>
+					|
+					<a href="">哈哈哈哈</a>
+					|
+					<a href="">哈哈哈哈</a>
+					|
+					<a href="">哈哈哈哈</a>
+					
+		</footer>
+		
+		<section id="bot" class="m">
+			<img src="../img/未标题-5.png"/>
+			<img src="../img/未标题-5.png"/>
+			<img src="../img/未标题-5.png"/>
+			<img src="../img/未标题-5.png"/>
+			<img src="../img/未标题-5.png"/>
+		</section>
+		
+
+	</body>
+	
+	<script src="jquery.2.2.4.js" type="text/javascript" charset="utf-8"></script>
+	<script src="jquery.banner.3.0.0.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">	
+		
+		
+		$(".banner1").banner({
+			items:$(".banner1 .imgbox a"),		//必传项，表示要移动的图片
+			left:$(".banner1 .btns #left"),		//可选，左按钮
+			right:$(".banner1 .btns #right"),	//可选，右按钮
+			autoPlay:false,						//可选，是否需要自动轮播
+		})
+		
+		$(".banner2").banner({
+			items:$(".banner2 .imgbox a"),		//必传项，表示要移动的图片
+			left:$(".banner2 .btns #left"),		//可选，左按钮
+			right:$(".banner2 .btns #right"),	//可选，右按钮
+			isList:true,
+			delayTime:5000,
+			moveTime:2000
+		})
+
+		$(".menu li").on("mouseover",function(){
+			$(".menu-3").css({display:"block"});
+
+			$(".menu li").on("mouseout",function(){
+		$(".menu-3").css({display:"none"});
+			})
+		})
+		
+		$(function(){
+			$(".llist").children("li").mouseover(function(){					
+				$(this).children("ul").stop().show(200).end().siblings().children("ul").stop().hide(200)					
+			})
+		})
+		
+		$(".nav").children("li").click(function(){	
+			var index = $(this).index()+1;
+			var t = $(".div"+index).offset().top;
+			$("html").animate({
+				scrollTop:t
+			})
+		})
+		
+		$(".cont").find("li").click(function(){
+			$(this).addClass("active").siblings().removeClass("active");
+			
+			$("p").removeClass("active").eq($(this).index()).addClass("active");
+		})
+        function ShowCountDown(year,month,day,divname)
+        {
+            var now = new Date();
+            var endDate = new Date(year, month, day);
+            var leftTime=endDate.getTime()-now.getTime();
+            var dd = parseInt(leftTime / 1000 / 60 / 60 / 24, 10);//计算剩余的天数
+            var hh = parseInt(leftTime / 1000 / 60 / 60 % 24, 10);//计算剩余的小时数
+            var mm = parseInt(leftTime / 1000 / 60 % 60, 10);//计算剩余的分钟数
+            var ss = parseInt(leftTime / 1000 % 60, 10);//计算剩余的秒数
+            dd = checkTime(dd);
+            hh = checkTime(hh);
+            mm = checkTime(mm);
+            ss = checkTime(ss);//小于10的话加0
+            var cc = document.getElementById(divname);
+            cc.innerHTML = "距离" + year + "年" + month + "月" + day + "日还有：" + dd + "天" + hh + "小时" + mm + "分" + ss + "秒";
+        }
+        function checkTime(i)
+        {
+            if (i < 10) {
+                i = "0" + i;
+            }
+            return i;
+        }
+        window.setInterval(function(){ShowCountDown(2019,11,11,'countdown');}, 1000);
+	</script>
+
+	
+</html>
+
